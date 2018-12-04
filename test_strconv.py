@@ -157,6 +157,7 @@ class ConverterTestCase(unittest.TestCase):
 
     def test_convert_datetime(self):
         tzoff = tzoffset(None, -18000)
+        bst_tzoff = tzoffset(None, +3600)
 
         self.assertEqual(strconv.convert_datetime('Mar 1, 2013T5:30:40 AM'),
                          datetime(2013, 3, 1, 5, 30, 40))
@@ -167,6 +168,10 @@ class ConverterTestCase(unittest.TestCase):
         # TZ
         self.assertEqual(strconv.convert_datetime('2013-03-01 5:30:40 -0500'),
                          datetime(2013, 3, 1, 5, 30, 40, tzinfo=tzoff))
+        self.assertEqual(strconv.convert_datetime('2013-03-01 15:30:40 BST'),
+                         datetime(2013, 3, 1, 5, 30, 40, tzinfo=bst_tzoff))
+        self.assertEqual(strconv.convert_datetime('2013-03-01 15:30:40+0100'),
+                         datetime(2013, 3, 1, 5, 30, 40, tzinfo=bst_tzoff))
 
 
 if __name__ == '__main__':
