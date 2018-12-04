@@ -219,8 +219,13 @@ DATE_FORMATS = (
 TIME_FORMATS = (
     '%H:%M:%S',
     '%H:%M',
+    '%H:%M:%S%z',
+    '%H:%M:%S %z',
+    '%H:%M:%S %Z',
     '%I:%M:%S %p',
     '%I:%M:%S %z',
+    '%I:%M:%S%z',
+    '%I:%M:%S %Z',
     '%I:%M %p',
     '%I:%M %z',
     '%I:%M',
